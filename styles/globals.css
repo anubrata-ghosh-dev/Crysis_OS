@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-crisis-dark text-white font-sans overflow-hidden;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 217, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 217, 255, 0.5);
+}
+
+/* +++ SPACING SYSTEM +++ */
+/* Consistent 8px grid-based spacing */
+.spacing-xs { @apply gap-1; }
+.spacing-sm { @apply gap-2; }
+.spacing-md { @apply gap-3; }
+.spacing-lg { @apply gap-4; }
+.spacing-xl { @apply gap-6; }
+
+.px-consistent { @apply px-4; }
+.py-consistent { @apply py-3; }
+.p-consistent { @apply p-4; }
+
+/* Glassmorphism Base */
+.glass-panel {
+  @apply bg-opacity-10 backdrop-blur-lg border border-crisis-edge;
+  background-color: rgba(15, 18, 32, 0.7);
+}
+
+.glass-panel-dark {
+  @apply bg-opacity-20 backdrop-blur-lg border border-crisis-edge;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Glow Effects */
+.glow-cyan {
+  @apply shadow-glow-cyan;
+}
+
+.glow-danger {
+  @apply shadow-glow-red;
+}
+
+.glow-warning {
+  @apply shadow-glow-amber;
+}
+
+/* Badge Styles */
+.badge-base {
+  @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+  border: 1px solid;
+}
+
+.badge-high {
+  @apply badge-base border-crisis-danger text-crisis-danger glow-danger;
+  background-color: rgba(255, 0, 51, 0.1);
+}
+
+.badge-medium {
+  @apply badge-base border-crisis-warning text-crisis-warning glow-warning;
+  background-color: rgba(255, 184, 0, 0.1);
+}
+
+.badge-low {
+  @apply badge-base border-crisis-safe text-crisis-safe;
+  background-color: rgba(0, 221, 102, 0.1);
+}
+
+/* Button Base */
+.button-base {
+  @apply px-4 py-2 rounded-lg font-bold tracking-wider uppercase transition-all duration-300;
+  border: 1px solid;
+}
+
+.button-primary {
+  @apply button-base border-crisis-cyan text-crisis-cyan glow-cyan;
+  background-color: rgba(0, 217, 255, 0.1);
+}
+
+.button-primary:hover {
+  @apply bg-opacity-20 shadow-lg;
+  background-color: rgba(0, 217, 255, 0.2);
+}
+
+.button-danger {
+  @apply button-base border-crisis-danger text-crisis-danger glow-danger;
+  background-color: rgba(255, 0, 51, 0.1);
+}
+
+.button-danger:hover {
+  @apply bg-opacity-20 shadow-lg;
+  background-color: rgba(255, 0, 51, 0.2);
+}
+
+/* Animated Line */
+.animated-line {
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 217, 255, 0.5), 
+    transparent);
+  background-size: 200% 100%;
+  animation: slide 3s ease-in-out infinite;
+}
+
+@keyframes slide {
+  0% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Marker Pulse */
+.marker-pulse {
+  animation: marker-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes marker-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+@keyframes marker-pulse-intense {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+@keyframes marker-enter {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scan Line Animation */
+.scan-line {
+  animation: scan 2s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Panel Slide-In */
+@keyframes panel-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Alert Pop */
+@keyframes alert-pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Glow Pulse */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.8), 0 0 30px rgba(0, 217, 255, 0.5);
+  }
+}
+
+/* Fade In Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+/* Grid Background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Enhanced hover effects for cards */
+.glass-panel {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  backdrop-filter: blur(12px);
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Text Glow */
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5),
+               0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.text-glow-danger {
+  text-shadow: 0 0 10px rgba(255, 0, 51, 0.5),
+               0 0 20px rgba(255, 0, 51, 0.3);
+}
+
+/* Hover Effects */
+.hover-scale {
+  @apply transition-transform duration-300;
+}
+
+.hover-scale:hover {
+  @apply scale-105;
+}
+
+/* Focus Ring */
+.focus-ring {
+  @apply outline-none ring-2 ring-crisis-cyan ring-opacity-50;
+}
+
+/* +++ MAP PANEL & LAYOUT === */
+/* Map container styling with proper borders */
+.map-panel {
+  @apply relative border-r border-crisis-edge;
+}
+
+/* Ensure map container fills available space */
+#map-container {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  background-color: #0f1220 !important;
+}
+
+/* Leaflet map fix - ensure proper rendering */
+.leaflet-container {
+  background: #0f1220 !important;
+  font-family: inherit !important;
+}
+
+/* Override Leaflet default z-index stacking */
+.leaflet-layer {
+  z-index: 1;
+}
+
+.leaflet-shadow {
+  z-index: 2;
+}
+
+.leaflet-marker-icon {
+  z-index: 3;
+}
+
+.leaflet-popup {
+  z-index: 4;
+}
+
+.leaflet-control {
+  z-index: 5;
+}
+
+/* Fix for Leaflet tile layer rendering */
+.leaflet-tile {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Ensure markers are visible and interactive */
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  pointer-events: auto;
+  will-change: transform;
+}
+
+/* Map control styling */
+.leaflet-control-zoom,
+.leaflet-control-attribution {
+  background: rgba(15, 18, 32, 0.8) !important;
+  border: 1px solid rgba(0, 217, 255, 0.3) !important;
+  border-radius: 4px !important;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+  background: rgba(0, 217, 255, 0.1) !important;
+  color: #00D9FF !important;
+  border: 1px solid rgba(0, 217, 255, 0.3) !important;
+}
+
+.leaflet-control-attribution {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
