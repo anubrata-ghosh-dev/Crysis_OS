@@ -48,6 +48,12 @@
   ],
   "references": [
     {
+      "path": "./apps/admin"
+    },
+    {
+      "path": "./apps/citizen"
+    },
+    {
       "path": "./tsconfig.node.json"
     }
   ]

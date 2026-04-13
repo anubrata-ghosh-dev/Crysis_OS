@@ -17,6 +17,7 @@
     "start:citizen": "cd apps/citizen && npm run start"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "next": "^14.1.0"
   }
 }
