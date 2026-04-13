@@ -2,6 +2,7 @@
   "buildCommand": "npm run build:admin",
   "installCommand": "npm install && cd apps/admin && npm install",
   "outputDirectory": "apps/admin/.next",
+  "rootDirectory": "apps/admin",
   "framework": "nextjs",
   "env": {
     "NEXT_PUBLIC_FIREBASE_API_KEY": "@NEXT_PUBLIC_FIREBASE_API_KEY",
