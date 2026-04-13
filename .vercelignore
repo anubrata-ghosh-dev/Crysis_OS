@@ -1,0 +1,17 @@
+# Ignore citizen app and other non-admin files from Vercel deployment
+apps/citizen
+backend
+data
+components
+lib
+shared
+styles
+.git
+.gitignore
+*.md
+!VERCEL_DEPLOYMENT.md
+node_modules
+*.tsbuildinfo
+.next
+.env
+.env.local
